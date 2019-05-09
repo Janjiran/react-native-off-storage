@@ -18,11 +18,7 @@
     "react native",
     "mobile",
     "ios",
-    "android",
-    "ui",
-    "stepper",
-    "progress",
-    "progress-steps"
+    "android"
   ],
   "author": "Jan Jiran",
   "license": "MIT",
@@ -31,7 +27,12 @@
   },
   "homepage": "https://github.com/Janjiran/react-native-off-storage#readme",
   "peerDependencies": {
-    "react-native": "^0.41.2",
-    "react-native-windows": "0.41.0-rc.1"
+    "react-native": "^0.59.0",
+    "react-native-windows": "0.41.0-rc.1",
+    "react": "^16.8.6"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-native": "^0.59.8"
   }
 }
