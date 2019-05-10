@@ -1,5 +1,5 @@
 
-package cz.jiranjan.thinkeasy.understudios.reactnative;
+package com.thinkeasy.offStorage;
 
 import java.util.Arrays;
 import java.util.Collections;

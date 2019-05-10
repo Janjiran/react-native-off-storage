@@ -1,5 +1,5 @@
 
-package cz.jiranjan.thinkeasy.understudios.reactnative;
+package com.thinkeasy.offStorage;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
