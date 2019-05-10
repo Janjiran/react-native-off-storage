@@ -16,7 +16,7 @@ RCT_EXPORT_MODULE();
   return fileName;
 }
 
-RCT_REMAP_METHOD(save, to:(NSString*)to base64:(NSString *)base64 resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject )
+RCT_REMAP_METHOD(_saveAsync, to:(NSString*)to base64:(NSString *)base64 resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject )
 {
   @try {
 
@@ -37,7 +37,7 @@ RCT_REMAP_METHOD(save, to:(NSString*)to base64:(NSString *)base64 resolver:(RCTP
 }
 
 
-RCT_EXPORT_METHOD(saveSync:(NSString *)to base64:(NSString *)base64)
+RCT_EXPORT_METHOD(save:(NSString *)to base64:(NSString *)base64)
 {
   @try {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -57,8 +57,7 @@ RCT_EXPORT_METHOD(saveSync:(NSString *)to base64:(NSString *)base64)
   }
 }
 
-
-RCT_REMAP_METHOD(read, from:(NSString*)from resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject )
+RCT_REMAP_METHOD(load, from:(NSString*)from resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject )
 {
   @try {
     NSString *fileName = [self resolvePath:from];
@@ -67,15 +66,6 @@ RCT_REMAP_METHOD(read, from:(NSString*)from resolver:(RCTPromiseResolveBlock)res
   } @catch(NSException *exception) {
     reject([exception name], [exception reason], NULL);
   }
-}
-
-
-
-RCT_EXPORT_METHOD(delete:(NSString *)from)
-{
-  NSFileManager *fileManager = [NSFileManager defaultManager];
-  NSString *fileName = [self resolvePath:from];
-  [fileManager removeItemAtPath:fileName error:nil];
 }
 
 
@@ -90,16 +80,6 @@ RCT_REMAP_METHOD(exists, name:(NSString*)name resolver:(RCTPromiseResolveBlock)r
     }else{
       resolve(@(FALSE));
     }
-  } @catch(NSException *exception) {
-    reject([exception name], [exception reason], NULL);
-  }
-}
-
-RCT_REMAP_METHOD(path, to:(NSString*)to resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject )
-{
-  @try {
-    NSString *fileName = [self resolvePath:to];
-    resolve(fileName);
   } @catch(NSException *exception) {
     reject([exception name], [exception reason], NULL);
   }

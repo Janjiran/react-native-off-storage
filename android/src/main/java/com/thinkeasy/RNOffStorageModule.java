@@ -31,7 +31,7 @@ public class RNOffStorageModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void saveSync(String to, String base64) {
+  public void save(String to, String base64) {
     try {
       File f = new File(resolvePath(to));
       f.getParentFile().mkdirs();
@@ -45,7 +45,7 @@ public class RNOffStorageModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void save(String to, String base64, Promise promise) {
+  public void _saveAsync(String to, String base64, Promise promise) {
     try {
       File f = new File(resolvePath(to));
       f.getParentFile().mkdirs();
@@ -69,12 +69,7 @@ public class RNOffStorageModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void path(String to, Promise promise) {
-    promise.resolve(getReactApplicationContext().getFilesDir().getAbsolutePath() + '/' + to);
-  }
-
-  @ReactMethod
-  public void read(String from, Promise promise) {
+  public void load(String from, Promise promise) {
     try {
       File f = new File(resolvePath(from));
       FileInputStream fin = new FileInputStream(f);

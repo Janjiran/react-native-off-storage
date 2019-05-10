@@ -27,11 +27,13 @@
   },
   "homepage": "https://github.com/Janjiran/react-native-off-storage#readme",
   "peerDependencies": {
+    "react": "^16.8.6",
     "react-native": "^0.59.0",
-    "react-native-windows": "0.41.0-rc.1",
-    "react": "^16.8.6"
+    "react-native-windows": "0.41.0-rc.1"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "buffer": "^5.2.1",
     "react": "^16.8.6",
     "react-native": "^0.59.8"
   }
